@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="glitter.css">
+    <title>real talk</title>
+  </head>
+  <body>
+  	<div class="slide title-slide">
+  		<h1 class="title">Generating<br/>Random<br/>Numbers<br/>with Claire</h1>
+  	</div>
+
+  	<div class="slide">
+  		<h1>I need to generate a sequence of random numbers that cannot be predicted by anything other than chance.</h1>
+  		<h2>Maybe I need this for:</h2>
+  		<p>Cryptography! or</p>
+  		<p>Gambing! or</p>
+  		<p>Statistical sampling! or</p>
+  		<p>Some sort of simulation! or</p>
+  		<p>Setting up my own lottery!</p>
+  	</div>
+
+  	<div class="slide">
+  		<h1>Where do I start? (I guess in nature?)</h1>
+  		<h2>I could <b>measure</b> something out in nature</h2>
+  		<p>Referred to as true entropy</p>
+  		<p>Blocking: slow because one has to go out there and harvest some entropy</p>
+  		<p>Lots of people use radioactive decay for this (in the short term, the time between two decay events is random), but as we all know that is wholly impractical for the purposes of this tech talk</p>
+  		<p>Also, it makes me nervous</p>
+  	</div>
+
+  	<div class="slide">
+  		<h1>Ok, so let's do that!</h1>
+  		<h2>With HotBits!</h2>
+  		<p>The friendly HotBits people are out there measuring time between radioactive events! Just for us!</p>
+  		<p>And then serving it up on their website!</p>
+  	</div>
+
+  	<div class="slide">
+  		<img src="http://www.redwhiteandchew.co.uk/ekmps/shops/480cb8/images/british-rowntree-s-randoms-sweets-case-of-36-x-50g-bags-466-p.jpg" class="img-slide"/>
+  	</div>
+
+  	<div class="slide">
+  		<h1>Ok but what if we want to do this in a completely closed system where you don't have to talk to anyone</h1>
+  		<h2>AKA The nerd's dream</h2>
+  		<p>This seed would be the initial source for the algorithm to do its thing</p>
+  		<p>Unlike true entropy, this is generally considered to be pseudorandom</p>
+  		<p>It can still be seeded with an entropic event from nature</p>
+  		<p>But since we don't have to wait for that event to occur, to store up the data, it's non-blocking and potentially a whole lot faster!</p>
+  		<p>There are plenty of different algorithms to chose from...</p>
+  	</div>
+
+  	<div class="slide">
+  		<h1>Like!</h1>
+  		<p>The Mersenne Twister</p>
+  		<p>Linear Congruential Generator</p>
+  		<p>Middle Square</p>
+  		<p>The Lavarand people seeded theirs with the visual noise from a lava lamp, and then used an algorithm to scramble the data and make it even more random</p>
+  	</div>
+
+  	<div class="slide">
+  		<h1>So I emailed my statastician</h1>
+  		<h2>And he said:</h2>
+  		<p>Because I am not making anything that needs to be cryptographically sound, this should do:</p>		
+  		<p>The variance of a uniformly distributed random variable on the inteval of -0.5 to 0.5 is 1/12</p>
+  		<p>The sum of 12 random variables with mean 0 and variance 1/12 is a random variable with mean 0 and variance 1</p>
+  		<p> Adding up a bunch of independent, identically distributed random variables will give you an approximate Gaussian random variable</p>
+  		<p>Which is good enough for me!</p>
+  	</div>
+
+  	<div class="slide">
+  		<h1>But wait!</h1>
+  		<h2>I still need to seed this with those 12 random numbers...</h2>
+  		<p>Let's try something new</p>
+  		<p>Javascript gets the random number from the system</p>
+  		<p>Let's seed our generator with that!</p>
+  	</div>
+
+  	<div class="slide title-slide">
+  		<h1 class="title">Thank you!!</h1>
+  	</div>
+  </body>
+</html>
